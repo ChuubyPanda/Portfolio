@@ -1,0 +1,57 @@
+*, *::before, *::after{
+    box-sizing:border-box;
+    font-family: monospace;
+}
+body{
+    margin: 0;
+    padding: 0;
+    display:flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    background: black;
+}
+.progress-bar {
+	position: relative;
+	width: 250px;
+	height: 30px;
+	background-color: #000;
+	border-radius: 1.5em;
+	color: white;
+}
+
+.progress-bar::before {
+	content: attr(data-label);
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: .5em;
+	top: .5em;
+	bottom: .5em;
+	width: calc(var(--width, 0) * 1%);
+	min-width: 2rem;
+	max-width: calc(100% - 1em);
+	background-color: #FFF;
+	padding: 1em;
+}
+.load{
+    position:relative
+}
+.load span{
+    position: relative;
+    font-size: 2em;
+    color: #fff;
+    display: inline-block;
+    text-transform: uppercase;
+    animation: animate 2s ease-in-out infinite;
+    animation-delay:calc(0.1s * var(--i));
+}
+@keyframes animate{
+    0%,40%,100%{
+        transform:translateY(0);
+    }
+    20%{
+        transform: translateY(-50px);
+    }
+}

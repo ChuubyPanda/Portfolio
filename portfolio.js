@@ -1,0 +1,1 @@
+const bars = document.querySelectorAll()
